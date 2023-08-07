@@ -68,11 +68,31 @@ void NewAfficherReponse(int nombre, int pair, int premier){
             printf("%d n'est ni pair ni premier\n", nombre);
             break;
         }
+    }
+}
 
-    default:
+int CleanAfficherResultat(int nombre, int pair, int prime)
+{
+    if (prime) prime+=1;
+    pair+=prime;
+
+    switch (pair)
+    {
+    case 0:
+        printf("%d n'est ni pair ni premier\n", nombre);
+        break;
+    case 1:
+        printf("%d est un nombre pair\n", nombre);
+        break;
+    case 2:
+        printf("%d est un nombre premier\n", nombre);
+        break;
+    case 3:
+        printf("%d est un nombre pair et premier\n", nombre);
         break;
     }
 }
+
 int main()
 {
     /* code */
@@ -81,5 +101,7 @@ int main()
     int is_prime = est_prime(nombre);
     afficherResultat(nombre, is_pair, is_prime);
     NewAfficherReponse(nombre,  is_pair, is_prime);
+    CleanAfficherResultat(nombre,  is_pair, is_prime);
+    
     return 0;
 }
