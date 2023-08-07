@@ -11,7 +11,7 @@ int estPair(int nombre)
 
 int est_prime(int nombre){
     int i= nombre-1;
-    while (i!=1)
+    while (i!=2)
     {
         if (nombre%i==0)
         {
