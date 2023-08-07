@@ -43,12 +43,43 @@ void afficherResultat(int nombre, int pair, int premier)
     }
 }
 
+void NewAfficherReponse(int nombre, int pair, int premier){
+    switch (pair)
+    {
+    case 1:
+        if (premier ==1)
+        {
+            printf("%d est un nombre pair et premier\n", nombre);
+            break;
+        }
+        else
+        {
+            printf("%d est un nombre pair\n", nombre);
+            break;
+        }        
+    case 0:
+        if (premier==1)
+        {
+            printf("%d est un nombre premier\n", nombre);
+            break;
+        }
+        else
+        {
+            printf("%d n'est ni pair ni premier\n", nombre);
+            break;
+        }
+
+    default:
+        break;
+    }
+}
 int main()
 {
     /* code */
-    int nombre = 7;
+    int nombre = 224;
     int is_pair = estPair(nombre);
     int is_prime = est_prime(nombre);
     afficherResultat(nombre, is_pair, is_prime);
+    NewAfficherReponse(nombre,  is_pair, is_prime);
     return 0;
 }
