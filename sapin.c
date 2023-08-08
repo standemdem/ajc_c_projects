@@ -16,7 +16,7 @@ void createTree(int hauteur)
     int counter = 1;
     int espace= hauteur;
     char star= 42;
-    int tree_width = (hauteur * 2);
+    int tree_width = (hauteur * 2)-1;
     int trunc_height= hauteur *0.2;
 
     for (hauteur ; hauteur > 0; hauteur--)
