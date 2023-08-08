@@ -13,10 +13,9 @@
 void createTree(int hauteur)
 {
     int etoile = 1;
-    int counter = 1;
     int espace= hauteur;
     char star= 42;
-    int tree_width = (hauteur * 2)-1;
+    int tree_width = ((hauteur * 2)-1)/2;
     int trunc_height= hauteur *0.2;
 
     for (hauteur ; hauteur > 0; hauteur--)
@@ -31,9 +30,17 @@ void createTree(int hauteur)
             printf("%c", star);
         }
         printf("\n");
-        counter= counter + 1;
         etoile = etoile +2;        
     }
+        for (trunc_height; trunc_height>0; trunc_height--)
+        {
+            for (tree_width; tree_width>0;tree_width--)
+            {
+                printf("%c",' ');
+            }
+            printf("%s\n", "| |");
+            
+        }
         
     // for (int i = 0; i < tree_width; i++)
     // {
