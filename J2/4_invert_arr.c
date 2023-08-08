@@ -11,7 +11,7 @@ int GetInput()
 int main(){
     int i=0;
     int size=7;
-    int temp_size=size-1;
+    int temp_index = size-1;
     int arrOfNums[size];
     int revertArrOfNum[size];
     
@@ -23,9 +23,9 @@ int main(){
     // invert array
     for (int index = 0; index < size; index++)
     {
-        revertArrOfNum[index]=arrOfNums[temp_size];
+        revertArrOfNum[index]=arrOfNums[temp_index];
         printf("%d\n",revertArrOfNum[index]);
-        temp_size--;
+        temp_index--;
     }
 
     return 0;
