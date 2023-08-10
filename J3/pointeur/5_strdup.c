@@ -1,17 +1,9 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include "Centrale.h"
 #include <string.h>
 // Fonction strdup personnalisée
 // Écrivez une fonction mon_strdup qui prend une chaîne en entrée et retourne un nouveau pointeur 
 // vers une nouvelle chaîne qui est une copie de l'entrée. Utilisez malloc pour allouer la mémoire.
-char *string_copy(char *src, char *desti)
-{
-    for (int i = 0; i < strlen(src); i++)
-    {
-        desti[i]=src[i];
-    }
-    return desti;
-}
+
 char *mon_strdup(char *str_param)
 {
     char *str_copy = malloc(strlen(str_param));
@@ -22,7 +14,7 @@ char *mon_strdup(char *str_param)
     return str_copy;
 }
 
-int main()
+int ex5()
 {
     char *my_str= malloc(sizeof(char));
     // printf("chaine originale %s\n", my_str);

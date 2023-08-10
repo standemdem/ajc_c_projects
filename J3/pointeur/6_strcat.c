@@ -1,5 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include "Centrale.h"
 #include <string.h>
 // Fonction strcat personnalisée
 // Écrivez une fonction mon_strcat qui prend deux chaînes 
@@ -16,7 +15,7 @@ char *mon_strcat(char *source, char *destination)
     return destination;
 }
 
-int main()
+int ex6()
 {
     char source[10] = "Stanislas" ;
     char destination[23] = "de Montmarin ";

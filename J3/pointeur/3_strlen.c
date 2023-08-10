@@ -1,5 +1,5 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include "Centrale.h"
+
 // Fonction strlen personnalisée
 // Écrivez une fonction mon_strlen qui prend en entrée une chaîne 
 // de caractères et retourne sa longueur (sans utiliser la fonction strlen de la bibliothèque).
@@ -14,7 +14,7 @@ int mon_strlen(char *phrase)
     return i;
 }
 
-int main()
+int ex3()
 {
     char *phrase = "coucou";
     printf("%d\n",mon_strlen(phrase));

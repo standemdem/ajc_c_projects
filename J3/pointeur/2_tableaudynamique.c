@@ -1,9 +1,9 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include "Centrale.h"
+
 // Écrivez un programme qui utilise malloc pour allouer un tableau de 5 int. 
 // Initialisez-le avec les valeurs de 1 à 5, puis imprimez ces valeurs avant de libérer l'espace.
 
-int main()
+int ex2()
 {
     int *tableau = malloc(sizeof(int) * 5);
     printf("Mon pointeur est: %p\n", tableau); 

@@ -1,12 +1,11 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include "Centrale.h"
 #include <string.h>
 
 // Fonction strcpy personnalisée
 // Écrivez une fonction mon_strcpy qui prend deux chaînes (source et destination) 
 // et copie la source dans la destination. Assurez-vous que la destination a suffisamment d'espace!
 
-char *strcpy_perso(char *src, char *desti)
+char *string_copy(char *src, char *desti)
 {
     for (int i = 0; i < strlen(src); i++)
     {
@@ -15,7 +14,7 @@ char *strcpy_perso(char *src, char *desti)
     return desti;
 }
 
-int main()
+int ex4()
 {   
     char *name = "stanislas";
     printf("%c\n", *name);
@@ -33,7 +32,7 @@ int main()
     // }
 
     printf("%p\n", destination);
-    strcpy_perso(source, destination);
+    string_copy(source, destination);
     printf("%s\n", destination);
     printf("%p\n", destination);
 

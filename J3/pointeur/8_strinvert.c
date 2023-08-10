@@ -1,5 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include "Centrale.h"
 #include <string.h>
 // Inversion d'une chaîne
 // Écrivez une fonction qui prend une chaîne en entrée et renvoie un nouveau pointeur 
@@ -18,25 +17,8 @@ char *str_invert(char *chain)
         chain[len_chain-i -1] = temp;
     }
 }
-char *string_copy(char *source, char *destination)
-{
-    for (int i = 0; source[i]!='\0'; i++)
-    {
-        *(destination + i)=source[i];
-    }
-}
-char *mon_strdup(char *str_param)
-{
-    char *str_copy = malloc(strlen(str_param));
-    printf("Dans fonction avt copie %p\n", str_copy);
-    string_copy(str_param, str_copy);
-    printf("Dans fonction après copie %p\n", str_copy);
 
-    return str_copy;
-}
-
-
-int main()
+int ex8()
 {
     char *word = "Hello World";
     char *invertme= malloc(strlen(word));
