@@ -29,7 +29,7 @@ char *find_char(char *chain, char letter)
 int main()
 {
     char *name="stanislas";
-    char *chain = malloc(strlen(name));
+    char *chain = malloc(sizeof(char) *(strlen(name)+1));
     printf("%p\n", chain);
 
     // fill chain with name value
@@ -38,8 +38,8 @@ int main()
     printf("%p\n", chain);
 
     // find pointer to target letter
-    char *target_ptr = find_char(chain, 'n');
-    printf("%s\n", target_ptr);
+    char *target_ptr = find_char(chain, 'w');
+    printf("%p\n", target_ptr);
     free(chain);
     return 0;
 }

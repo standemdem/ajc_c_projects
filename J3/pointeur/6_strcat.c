@@ -12,6 +12,7 @@ char *mon_strcat(char *source, char *destination)
     {
         destination[i + size] = source[i];
     }
+    *(destination + strlen(source) + size)='\0';
     return destination;
 }
 

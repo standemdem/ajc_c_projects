@@ -6,6 +6,18 @@
 // vers une chaîne qui est l'inversion de l'entrée. Par exemple, "abcd" deviendrait "dcba".
 
 
+char *str_invert(char *chain)
+{
+    int len_chain = strlen(chain);
+    for (int i = 0; i < len_chain / 2; i++)
+    {
+        char temp = chain[i];
+        // printf("temp value= %c\n", temp);
+        chain[i] = chain[len_chain -i -1];
+        // printf("chain new value= %c\n", chain[i]);
+        chain[len_chain-i -1] = temp;
+    }
+}
 char *string_copy(char *source, char *destination)
 {
     for (int i = 0; source[i]!='\0'; i++)
@@ -23,18 +35,6 @@ char *mon_strdup(char *str_param)
     return str_copy;
 }
 
-char *str_invert(char *chain)
-{
-    int len_chain = strlen(chain);
-    for (int i = 0; i < len_chain / 2; i++)
-    {
-        char temp = chain[i];
-        // printf("temp value= %c\n", temp);
-        chain[i] = chain[len_chain -i -1];
-        // printf("chain new value= %c\n", chain[i]);
-        chain[len_chain-i -1] = temp;
-    }
-}
 
 int main()
 {
