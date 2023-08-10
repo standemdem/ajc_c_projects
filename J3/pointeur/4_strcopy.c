@@ -1,38 +1,42 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+
 // Fonction strcpy personnalisée
 // Écrivez une fonction mon_strcpy qui prend deux chaînes (source et destination) 
 // et copie la source dans la destination. Assurez-vous que la destination a suffisamment d'espace!
 
-void strcpy_perso(char *src, char *desti)
+char *strcpy_perso(char *src, char *desti)
 {
-    for (int i = 0; src[i]!="\0"; i++)
+    for (int i = 0; i < strlen(src); i++)
     {
         desti[i]=src[i];
-        printf("%s", src[i]);
     }
-    
-    // *destination = *source;
-    printf("%s ", *desti);
+    return desti;
 }
 
 int main()
 {   
     char *name = "stanislas";
+    printf("%c\n", *name);
     char *source = malloc(sizeof(char)*10);
     char *destination = malloc(sizeof(char) * 11);
 
-    printf("%p \n", source);
-    for (int i = 0; name[i]!="\0"; i++)
+    for (int i = 0; name[i]!='\0'; i++)
     {
         source[i]=name[i];
     }
-    printf("%p \n", source);
-    printf("%s\n", source);
-    
-    // printf("%p\n", destination);
+    // autre methode pour se ballader avec le pointeur
+    // for (int i = 0; name[i]!='\0'; i++)
+    // {
+    //     *(source + i)=name[i];
+    // }
 
-    // strcpy_perso(&source, destination);
+    printf("%p\n", destination);
+    strcpy_perso(source, destination);
+    printf("%s\n", destination);
+    printf("%p\n", destination);
+
 
     free(destination);
     free(source);
