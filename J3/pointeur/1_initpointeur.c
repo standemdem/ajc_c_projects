@@ -1,4 +1,4 @@
-#include "Centrale.h"
+#include "centrale.h"
 
 // Écrivez un programme qui utilise malloc pour allouer un espace pour un int, 
 // l'initialise à 5, puis imprime cette valeur via le pointeur avant de libérer l'espace.

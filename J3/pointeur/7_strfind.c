@@ -1,4 +1,4 @@
-#include "Centrale.h"
+#include "centrale.h"
 #include <string.h>
 // Recherche d'un caractère
 // Écrivez une fonction qui prend une chaîne et un caractère en entrée, et renvoie un pointeur vers 

@@ -1,4 +1,4 @@
-#include "Centrale.h"
+#include "centrale.h"
 #include <string.h>
 
 // Fonction strcpy personnalisée

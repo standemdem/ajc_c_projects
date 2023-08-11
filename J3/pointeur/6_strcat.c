@@ -1,4 +1,4 @@
-#include "Centrale.h"
+#include "centrale.h"
 #include <string.h>
 // Fonction strcat personnalisée
 // Écrivez une fonction mon_strcat qui prend deux chaînes 

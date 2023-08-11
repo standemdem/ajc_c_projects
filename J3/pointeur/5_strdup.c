@@ -1,4 +1,4 @@
-#include "Centrale.h"
+#include "centrale.h"
 #include <string.h>
 // Fonction strdup personnalisée
 // Écrivez une fonction mon_strdup qui prend une chaîne en entrée et retourne un nouveau pointeur 

@@ -1,4 +1,4 @@
-#include "Centrale.h"
+#include "centrale.h"
 
 // Fonction strlen personnalisée
 // Écrivez une fonction mon_strlen qui prend en entrée une chaîne 

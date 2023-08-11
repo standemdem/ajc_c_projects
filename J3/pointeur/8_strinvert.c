@@ -1,4 +1,4 @@
-#include "Centrale.h"
+#include "centrale.h"
 #include <string.h>
 // Inversion d'une chaîne
 // Écrivez une fonction qui prend une chaîne en entrée et renvoie un nouveau pointeur 
