@@ -1,5 +1,10 @@
 {
     "files.associations": {
-        "limits": "c"
+        "limits": "c",
+        "checc.C": "cpp",
+        "string.h": "c",
+        "stdio.h": "c",
+        "stdlib.h": "c",
+        "typeinfo": "c"
     }
 }
