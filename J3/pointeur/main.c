@@ -1,4 +1,4 @@
-#include "Centrale.h"
+#include "centrale.h"
 
 int main(){
     ex1();
