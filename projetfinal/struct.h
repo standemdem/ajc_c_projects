@@ -3,6 +3,17 @@
 
     typedef struct 
     {
+        int cout_or;
+        int cout_bois;
+        int cout_mat_noire;
+        int production_j;
+        int peons_necessaires;
+        int peons_assignés;
+        bool activated;
+    }Scierie, Mine, Raffinerie;
+    
+    typedef struct 
+    {
         int level; // niveau de l'hotel de ville
         Scierie *liste_scierie;
         Mine *liste_mine;
@@ -16,14 +27,6 @@
         int total_soldats; 
     }Hotel_de_ville;
     
-    typedef struct 
-    {
-        int cout_or;
-        int cout_bois;
-        int cout_mat_noire;
-        int production_j;
-        int peons_necessaires;
-        int peons_assignés;
-    }Scierie, Mine, Raffinerie;
+    
     
 #endif
