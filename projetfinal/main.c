@@ -6,11 +6,11 @@
 
 int main()
 {
-    Hotel_de_ville zorgland = initialisation_jeu();
-    
-    int choice;
     int jour=0;
     printf("Bienvenu à Zorgland, jour %d\n", jour);
+    Hotel_de_ville *zorgland = initialisation_jeu();
+    
+    int choice;
     afficher_menu();    
     while (choice !=6)
     {
