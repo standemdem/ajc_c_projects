@@ -15,9 +15,10 @@ Hotel_de_ville *initialisation_jeu()
     hdv->mat_noire = 0;
     hdv->total_soldats = 0;
 
-    Scierie *scierie=malloc(sizeof(Scierie) * 10);
-    Mine *mine=malloc(sizeof(Mine) * 10);
-    Raffinerie *raffinerie = malloc(sizeof(Raffinerie) * 10);
+    Scierie *Liste_scierie=malloc(sizeof(Scierie) * 10);
+    Liste_scierie[0].activated = false;
+    Mine *Liste_mine=malloc(sizeof(Mine) * 10);
+    Raffinerie *Liste_raffinerie = malloc(sizeof(Raffinerie) * 10);
     
     // free(scierie);
     // free(mine);
@@ -29,15 +30,15 @@ void afficher_etat_village(Hotel_de_ville *hdv)
 {
     printf("Ressources disponibles\n");
     printf("***************************************\n");
-    printf("bois: %d  or: %d  matière noire: %d\n",
-            hdv->bois, hdv->or, hdv->mat_noire); 
+    printf("bois: %d  or: %d  matière noire: %d  villageois dispo %d \n",
+            hdv->bois, hdv->or, hdv->mat_noire, hdv->peons_disponibles); 
     printf("***************************************\n");
     printf("Batiments Construits\n");
     printf("***************************************\n");
     printf("Scieries: %d, Mines: %d, Raffineries: %d\n"
             ,hdv->total_scierie, 
             hdv->total_mine, 
-            hdv->total_raffinerie);
+            hdv->total_raffinerie);    
 }
 
 void afficher_menu()
@@ -93,7 +94,10 @@ void creer_batiment(Hotel_de_ville *hdv, int numero_batiment)
             hdv->liste_scierie = realloc(hdv->liste_scierie, hdv->total_scierie * sizeof(Scierie));
             Scierie nouvelle_scierie = {50, 0, 0, 0, 0, 0, false};  // Initialisation des valeurs
             hdv->liste_scierie[hdv->total_scierie - 1] = nouvelle_scierie;
-            printf("La scierie n° %d a été créée", hdv->total_scierie);
+            system("clear");
+            printf("La scierie n° %d a été créée\n", hdv->total_scierie);
+            printf("\n");
+            afficher_menu();
         }
         break;
     case 2: // Mine
@@ -107,6 +111,10 @@ void creer_batiment(Hotel_de_ville *hdv, int numero_batiment)
             hdv->liste_mine = realloc(hdv->liste_mine, hdv->total_mine * sizeof(Mine));
             Mine nouvelle_mine = {100, 20, 0, 0, 0, 0, false};  // Initialisation des valeurs
             hdv->liste_mine[hdv->total_mine - 1] = nouvelle_mine;
+            system("clear");
+            printf("La mine n° %d a été créée\n", hdv->total_mine);
+            printf("\n");
+            afficher_menu();
         }
         break;
     case 3: // Rafinerie
@@ -121,7 +129,21 @@ void creer_batiment(Hotel_de_ville *hdv, int numero_batiment)
             hdv->liste_raffinerie = realloc(hdv->liste_raffinerie, hdv->total_raffinerie * sizeof(Raffinerie));
             Raffinerie nouvelle_raffinerie = {500, 100, 50, 0, 0, 0, false};  // Initialisation des valeurs
             hdv->liste_raffinerie[hdv->total_raffinerie - 1] = nouvelle_raffinerie;
+            system("clear");
+            printf("La raffinerie n° %d a été créée\n", hdv->total_raffinerie);
+            printf("\n");
+            afficher_menu();
         }
+        else
+        {
+            system("clear");
+            printf("Vous êtes beaucoup trop pauvre !\n");
+            afficher_menu();
+        }
+        break;
+    case 4:
+        system("clear");
+        afficher_menu();
         break;
     default:
         break;
@@ -135,25 +157,58 @@ void creer_batiment(Hotel_de_ville *hdv, int numero_batiment)
     case 1: // scierie
         if (hdv->peons_disponibles >= 2)
         {
-            hdv->peons_disponibles -= 2;
-            hdv->liste_scierie->peons_assignés += 2;
+            int index = 0; 
+            for (int i = 0; hdv->liste_scierie[i].activated!=false; i++)
+            {
+                index ++;
+            }
+            printf("index %d", index);
+            if (hdv->liste_scierie[index].activated == false)
+            {
+                hdv->liste_scierie[index].activated = true;
+                hdv->liste_scierie[index].peons_assignés += 2;
+                hdv->peons_disponibles -= 2;
+                printf("Les villageois sont parti au boulot ! \n");
+            }
+            else
+            {
+                printf("Vous ne pouvez plus allouer de villageois pour le moment");
+            }
         }
         break;
     case 2: // mine
         if (hdv->peons_disponibles >= 3)
         {
+            for (int i = 0; i < hdv->total_mine; i++)
+            {
+                if (hdv->liste_mine[i].activated == false)
+                {
+                    hdv->liste_mine[i].activated = true;
+                    hdv->liste_mine[i].peons_assignés += 3;
+                    printf("Les villageois sont parti au boulot ! \n");
+                }
+            }
             hdv->peons_disponibles -= 3;
-            hdv->liste_mine->peons_assignés += 3;
         }
         break;
-    case 3:
+    case 3: // raffinerie
         if (hdv->peons_disponibles >= 5)
         {
+            for (int i = 0; i < hdv->total_raffinerie; i++)
+            {
+                if (hdv->liste_raffinerie[i].activated == false)
+                {
+                    hdv->liste_raffinerie[i].activated = true;
+                    hdv->liste_raffinerie[i].peons_assignés += 5;
+                    printf("Les villageois sont parti au boulot ! \n");
+                }
+            }
             hdv->peons_disponibles -= 5;
-            hdv->liste_raffinerie->peons_assignés += 5;
         }
         break;
-
+    case 4: // back
+        afficher_menu();
+        break;
     default:
         break;
     }
