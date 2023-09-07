@@ -5,6 +5,7 @@
         "string.h": "c",
         "stdio.h": "c",
         "stdlib.h": "c",
-        "typeinfo": "c"
+        "typeinfo": "c",
+        "func_struct.h": "c"
     }
 }
